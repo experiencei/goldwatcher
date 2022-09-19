@@ -1,0 +1,52 @@
+{{template "admin-base" .}}
+
+{{define "title"}}Vote Results - vMaintain Admin{{end}}
+
+{{define "admin-title"}}Vote Results{{end}}
+{{define "content-title"}}Vote Results{{end}}
+
+{{define "css"}}
+{{end}}
+
+{{define "content"}}
+
+    <h2>Full Time Unit</h2>
+    <p>
+        <strong>Number of potential voters:</strong> {{ index .IntMap "no_ft"}}<br>
+        <strong>Number of respondents:</strong> {{ index .IntMap "resp_ft"}}<br>
+        <strong>Response Rate:</strong> {{ index .StringMap "pct_ft"}}%<br>
+    </p>
+    <div class="row">
+        <div class="col text-center">
+            <h3>Number of YES votes:</h3>
+            <span class="badge badge-primary">{{index .IntMap "ft_y"}}</span>
+        </div>
+        <div class="col text-center">
+            <h3>Number of NO votes:</h3>
+            <span class="badge badge-danger">{{index .IntMap "ft_n"}}</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>Part Time Unit</h3>
+    <p>
+        <strong>Number of potential voters:</strong> {{ index .IntMap "no_pt"}}<br>
+        <strong>Number of respondents:</strong> {{ index .IntMap "resp_pt"}}<br>
+        <strong>Response Rate:</strong> {{ index .StringMap "pct_pt"}}%<br>
+    </p>
+    <div class="row">
+        <div class="col text-center">
+            <h3>Number of YES votes:</h3>
+            <span class="badge badge-primary">{{index .IntMap "pt_y"}}</span>
+        </div>
+        <div class="col text-center">
+            <h3>Number of NO votes:</h3>
+            <span class="badge badge-danger">{{index .IntMap "pt_n"}}</span>
+        </div>
+    </div>
+{{end}}
+
+{{define "js"}}
+
+{{end}}

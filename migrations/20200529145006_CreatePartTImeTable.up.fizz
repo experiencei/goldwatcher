@@ -1,0 +1,15 @@
+create_table("pt_members") {
+    t.Column("id", "integer", {primary: true})
+    t.Column("voted", "integer", {"default": 0})
+    t.Column("email", "string", {"default": ""})
+    t.Column("first_name", "string", {"default": ""})
+    t.Column("last_name", "string", {"default": ""})
+}
+
+sql("alter table pt_members alter column created_at set default now();")
+sql("alter table pt_members alter column updated_at set default now();")
+
+sql(`CREATE TRIGGER set_timestamp
+    BEFORE UPDATE ON pt_members
+    FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();`)

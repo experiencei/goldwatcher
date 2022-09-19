@@ -1,0 +1,57 @@
+{{template "admin-base" .}}
+
+{{define "title"}}Send Vote Emails - vMaintain Admin{{end}}
+
+{{define "admin-title"}}Send Vote Emails{{end}}
+{{define "content-title"}}Send Vote Emails{{end}}
+
+{{define "css"}}
+{{end}}
+
+{{define "content"}}
+<div class="row">
+    <div class="col">
+        <p>This will send a message to every registered member of the bargaining units.</p>
+
+        <p>You can use this as often as you like, up until the close of voting. If used more
+        than once, emails will only be sent to members who have not yet cast his/her vote.</p>
+
+
+        <hr>
+
+        <a class="btn btn-primary" href="javascript:" onclick="sendFT()">Send Invitations to members of the FT Unit</a>
+        <a class="btn btn-primary" href="javascript:" onclick="sendPT()">Send Invitations to members of the PT Unit</a>
+    </div>
+</div>
+
+{{end}}
+
+{{define "js"}}
+<script>
+    function sendFT(){
+        attention.promptConfirm({
+            icon: 'warning',
+            html: 'This will send an email to all non-responding full time members. Are you sure? If so, type "Yes" below',
+            confirmationText: "Yes",
+            callback: function(result){
+                if (result === true) {
+                    window.location = "/faust/invite/ft"
+                }
+            }
+        })
+    }
+
+    function sendPT(){
+        attention.promptConfirm({
+            icon: 'warning',
+            html: 'This will send an email to all non-responding part time members. Are you sure? If so, type "Yes" below',
+            confirmationText: "Yes",
+            callback: function(result){
+                if (result === true) {
+                    window.location = "/faust/invite/pt"
+                }
+            }
+        })
+    }
+</script>
+{{end}}

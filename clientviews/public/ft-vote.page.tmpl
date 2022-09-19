@@ -1,0 +1,66 @@
+{{template "base" .}}
+
+{{define "title"}}Some title{{end}}
+
+{{define "body"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="mt-2">Ratification of Full Time Collective Agreement</h2>
+                <hr>
+                <p>Do you accept the new Full Time Collective Agreement? <br>Choose yes if you vote to accept the
+                    agreement, or no if you vote to reject the agreement.</p>
+
+                <a href="javascript:" class="btn btn-success" onclick="yes()">Yes</a>
+                &nbsp;&nbsp;
+                <a href="javascript:" class="btn btn-danger" onclick="no()">No</a>
+
+                <form method="post" action="/faust/ft-vote" id="vote-form">
+                    <input type="hidden" name="id" value="{{index .IntMap "id"}}">
+                    <input type="hidden" name="vote" id="vote" value="">
+                    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+                </form>
+                <div class="mt-2"></div>
+            </div>
+        </div>
+    </div>
+
+{{end}}
+
+{{define "js"}}
+    <script>
+        function yes() {
+            attention.confirm({
+                html: "Are you sure that you want to vote to <strong>accept the new agreement</strong>",
+                showCancelButton: true,
+                showConfirmButton: true,
+                confirmButtonText: 'Cast my vote',
+                icon: 'warning',
+                callback: function (result) {
+                    if (result === true) {
+                        document.getElementById("vote").value = 1;
+                        let form = document.getElementById("vote-form");
+                        form.submit();
+                    }
+                }
+            })
+        }
+
+        function no() {
+            attention.confirm({
+                html: "Are you sure that you want to vote <strong>refuse the new agreement</strong>?",
+                showCancelButton: true,
+                showConfirmButton: true,
+                confirmButtonText: 'Cast my vote',
+                icon: 'warning',
+                callback: function (result) {
+                    if (result === true) {
+                        document.getElementById("vote").value = 0;
+                        let form = document.getElementById("vote-form");
+                        form.submit();
+                    }
+                }
+            })
+        }
+    </script>
+{{end}}

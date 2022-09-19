@@ -1,0 +1,45 @@
+{{template "admin-base" .}}
+
+{{define "title"}}Send Vote Emails - vMaintain Admin{{end}}
+
+{{define "admin-title"}}Resend Invitation{{end}}
+{{define "content-title"}}Resend Invitation{{end}}
+
+{{define "css"}}
+{{end}}
+
+{{define "content"}}
+    <div class="row">
+        <div class="col-md-6">
+            <p>Resend an invitation by entering the email address</p>
+            <hr>
+            <form method="post" action="/admin/votes/resend">
+                <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+
+                <div class="form-group">
+                    <label>Unit</label>
+                    <select class="form-control" name="unit">
+                        <option value="ft">Full Time</option>
+                        <option value="pt">Part Time</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Email address:</label>
+                    <input class="form-control" id="email" autocomplete="off" type='text'
+                           name='email' required>
+                </div>
+
+                <hr>
+                <input type="submit" class="btn btn-primary" value="Send">
+            </form>
+        </div>
+    </div>
+
+{{end}}
+
+{{define "js"}}
+    <script>
+
+    </script>
+{{end}}

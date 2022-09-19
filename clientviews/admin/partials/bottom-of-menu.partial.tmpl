@@ -1,0 +1,13 @@
+{{define "bottom-of-menu"}}
+    {{if hasRole "votes" .Auth.ID}}
+        <li id="vote" {{if eq .CurrentSegment "votes"}} class="active" {{end}}>
+            <a href="#!"><i class="fa fa-check-circle-o fa-fw"></i> <span class="nav-label">Voting</span> <span
+                        class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/admin/votes/results">View Results</a></li>
+                <li><a href="/admin/votes/send">Send Invitations</a></li>
+                <li><a href="/admin/votes/resend">Resend Invitation</a></li>
+            </ul>
+        </li>
+    {{end}}
+{{end}}

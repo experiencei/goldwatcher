@@ -1,0 +1,16 @@
+create_table("vote_totals") {
+    t.Column("id", "integer", {primary: true})
+    t.Column("yes", "integer", {})
+    t.Column("no", "integer", {})
+}
+
+sql("alter table vote_totals alter column created_at set default now();")
+sql("alter table vote_totals alter column updated_at set default now();")
+
+sql(`CREATE TRIGGER set_timestamp
+    BEFORE UPDATE ON vote_totals
+    FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();`)
+
+sql("insert into vote_totals (yes, no) values (0, 0)")
+sql("insert into vote_totals (yes, no) values (0, 0)")

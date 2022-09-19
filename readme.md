@@ -60,6 +60,6 @@ www.goblender.ca, goblender.ca {
 }
 
 #View Result
-![chart](result/Screenshot_20220919-144811_1.png "chart")
+![chart](goldwatcher/result/Screenshot_20220919-144811_1.png "chart")
 
 ~~~

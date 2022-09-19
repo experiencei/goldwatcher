@@ -35,6 +35,9 @@ The result should look like this:
 
 ![chart](result/Screenshot_20220919-144811_1.png "chart")
 
+the budget and order tab
+![chart](result/Screenshot_20220919-144830_1.png "chart")
+
 ## Running with Caddy
 
 To run as part of existing site, with Caddy 2.x, use this redirect (assuming url is https://www.goblender.ca/gowatcher/status,

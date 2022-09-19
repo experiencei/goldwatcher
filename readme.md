@@ -30,6 +30,11 @@ Example:
 ./gwc -host=178.128.231.48 -production=false -port=':6001'
 ~~~
 
+The result should look like this:
+
+
+![chart](result/Screenshot_20220919-144811_1.png "chart")
+
 ## Running with Caddy
 
 To run as part of existing site, with Caddy 2.x, use this redirect (assuming url is https://www.goblender.ca/gowatcher/status,
@@ -58,8 +63,5 @@ www.goblender.ca, goblender.ca {
 	# for goblender
 	reverse_proxy  http://localhost:7004
 }
-
-#View Result
-![chart](goldwatcher/result/Screenshot_20220919-144811_1.png "chart")
 
 ~~~

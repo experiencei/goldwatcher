@@ -58,4 +58,8 @@ www.goblender.ca, goblender.ca {
 	# for goblender
 	reverse_proxy  http://localhost:7004
 }
+
+#View Result
+![chart](result/Screenshot_20220919-144811_1.png "chart")
+
 ~~~
